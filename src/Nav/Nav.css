@@ -1,0 +1,30 @@
+.nav {
+  position: static;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  height: 20px;
+  left: 0;
+  justify-content: space-between;
+  
+
+}
+
+.user {
+  position: fixed;
+  top: 9px;
+  right: 20px;
+  width: 40px;
+}
+
+
+.nav_logo {
+  position: relative;
+  left: 20px;
+  width: 80px;
+  padding-top: 15px;
+}
+
+
