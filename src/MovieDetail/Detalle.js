@@ -3,6 +3,7 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import Nav from "../Nav/Nav";
 
 const Detalle = () => {
   let token = sessionStorage.getItem("miToken");
@@ -27,7 +28,14 @@ const Detalle = () => {
   }, [movieID]);
 
   return (
-    <div classname="col-3">
+    <> 
+    <Nav/>
+    <div classname="col-12" style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent:"center",
+    }}
+  >
       <Card
         style={{
           width: "20rem",
@@ -48,10 +56,10 @@ const Detalle = () => {
             backgroundColor: "black",
           }}
         >
-          <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>{movie.overview}</Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
+          <Card.Title style={{ color: "white" }}>{movie.title}</Card.Title>
+          <Card.Text style={{ color: "white" }}> {movie.overview}</Card.Text>
+        </Card.Body >
+        <ListGroup className="list-group-flush" style={{ color: "black" }}>
           <ListGroupItem>Presupuesto: {movie.budget}</ListGroupItem>
           <ListGroupItem>votación: {movie.vote_average}</ListGroupItem>
           <ListGroupItem>minutos: {movie.runtime} m</ListGroupItem>
@@ -62,7 +70,10 @@ const Detalle = () => {
         </Card.Body>
       </Card>
     </div>
+    </>
   );
+  
 };
+
 
 export default Detalle;

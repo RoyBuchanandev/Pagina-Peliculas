@@ -1,42 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Navigate,Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import React from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
 
-function Listado() {
-  let token = localStorage.getItem("miToken");
-
-  const [moviesList, setMoviesList] = useState([]);
+const Resultados = () => {
+  let query = new URLSearchParams(window.location.search);
+  let keyword = query.get("keyword");
+  const [moviesResults, setMoviesResults] = useState([]);
 
   useEffect(() => {
-    const endPoint =
-      "https://api.themoviedb.org/3/discover/movie?api_key=15f48dbdec89fc10206ad7433288064d&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
+    const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=15f48dbdec89fc10206ad7433288064d&language=en-US&query=${keyword}`
+
     axios
       .get(endPoint)
       .then((res) => {
-        const apiData = res.data;
-        setMoviesList(apiData.results);
+        const moviesArray = res.data.results;
+        setMoviesResults(moviesArray)
       })
       .catch((err) => {
         Swal.fire("no se pudo conectar con la api");
       });
-  }, [setMoviesList]);
-
-  console.log(moviesList);
+  }, []);
 
   return (
     <>
-      {!token && <Navigate to="/" />}
-
-      <Nav/>
-
+     <h2> buscaste : {keyword}</h2>
       <div className="row">
-        {}
-        {moviesList.map((oneMovie, indice) => {
+        {
+        moviesResults.map((oneMovie, indice) => {
           return (
-            <div className="col-3">
+            <div className="col-4">
               <Card
                 style={{
                   width: "20rem",
@@ -55,14 +51,6 @@ function Listado() {
                   <Card.Text style={{ color: "white" }}>
                     {oneMovie.overview.substring(0, 150)}...
                   </Card.Text>
-                  <Link 
-                  className="btn btn-primary"
-                    to={`/detalle?movieID=${oneMovie.id}`}
-                    style={{ backgroundColor: "red" }}
-                    variant="primary"
-                  >
-                    Ver pelicula
-                  </Link>
                 </Card.Body>
               </Card>
             </div>
@@ -71,6 +59,6 @@ function Listado() {
       </div>
     </>
   );
-}
+};
 
-export default Listado;
+export default Resultados;

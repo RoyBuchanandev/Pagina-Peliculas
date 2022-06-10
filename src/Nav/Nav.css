@@ -21,7 +21,7 @@
 
 
 .nav_logo {
-  position: relative;
+  position: sticky;
   left: 20px;
   width: 80px;
   padding-top: 15px;
