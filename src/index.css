@@ -21,6 +21,7 @@ code {
   color: white;
   opacity: 0.95;
   background-image: url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/11/netflix-android-2521107.jpg");
+  height: 100vh;
    }
 
    .form-edit {
@@ -44,6 +45,13 @@ code {
   width: 300px;
 }
 
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 
 

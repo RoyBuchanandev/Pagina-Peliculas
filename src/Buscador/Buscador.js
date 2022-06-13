@@ -26,7 +26,7 @@ const Buscador = () => {
           placeholder="ingresa nombre de la pelicula"
         />
       </label>
-      <Button className="btn btn-success"  type="submit" >
+      <Button className="success-btn"  type="submit" >
         Buscar
       </Button>
     </form>

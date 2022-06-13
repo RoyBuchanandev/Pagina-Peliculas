@@ -8,12 +8,22 @@
   height: 20px;
   left: 0;
   justify-content: space-between;
+
   
 
 }
 
+.header-netflix{
+background-color: black ;
+height: 70px;
+}
+
+body {
+  background-color: black;
+}
+
 .user {
-  position: fixed;
+  position: absolute;
   top: 9px;
   right: 20px;
   width: 40px;

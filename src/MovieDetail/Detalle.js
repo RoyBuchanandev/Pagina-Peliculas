@@ -14,7 +14,7 @@ const Detalle = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=15f48dbdec89fc10206ad7433288064d&language=es-ES&language=en-EN`;
+    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=15f48dbdec89fc10206ad7433288064d&language=es-ES&language=es-ES`;
     axios
       .get(endPoint)
       .then((res) => {
@@ -38,15 +38,12 @@ const Detalle = () => {
   >
       <Card
         style={{
-          width: "20rem",
+          width: "30rem",
           margin: "3rem",
-          backgroundColor: "black",
+          backgroundColor: "white",
         }}
       >
-        <Card.Img
-          variant="top"
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        />
+        
         <Card.Img
           variant="top"
           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -59,10 +56,11 @@ const Detalle = () => {
           <Card.Title style={{ color: "white" }}>{movie.title}</Card.Title>
           <Card.Text style={{ color: "white" }}> {movie.overview}</Card.Text>
         </Card.Body >
-        <ListGroup className="list-group-flush" style={{ color: "black" }}>
-          <ListGroupItem>Presupuesto: {movie.budget}</ListGroupItem>
-          <ListGroupItem>votación: {movie.vote_average}</ListGroupItem>
-          <ListGroupItem>minutos: {movie.runtime} m</ListGroupItem>
+        <ListGroup className="list-group-flush" style={{ backgroundColor: "black" }}>
+          <ListGroupItem>Titulo: {movie.title}</ListGroupItem>
+          <ListGroupItem>Votación: {movie.vote_average} ✔</ListGroupItem>
+          <ListGroupItem>Minutos: {movie.runtime} ⌚</ListGroupItem>
+          <ListGroupItem>Lenguaje original: {movie.original_language} </ListGroupItem>
         </ListGroup>
         <Card.Body>
           <Card.Link href="#"></Card.Link>

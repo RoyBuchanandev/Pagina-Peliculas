@@ -31,7 +31,6 @@ function Listado() {
       {!token && <Navigate to="/" />}
 
       <Nav/>
-
       <div className="row">
         {}
         {moviesList.map((oneMovie, indice) => {
@@ -41,7 +40,8 @@ function Listado() {
                 style={{
                   width: "20rem",
                   margin: "3rem",
-                  backgroundColor: "black",
+                  backgroundColor: "white",
+                  
                 }}
               >
                 <Card.Img
@@ -49,11 +49,11 @@ function Listado() {
                   src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
                 />
                 <Card.Body>
-                  <Card.Title style={{ color: "white" }}>
+                  <Card.Title style={{ color: "black" }}>
                     {oneMovie.title.substring(0, 100)}
                   </Card.Title>
-                  <Card.Text style={{ color: "white" }}>
-                    {oneMovie.overview.substring(0, 150)}...
+                  <Card.Text style={{ color: "black" }}>
+                    {oneMovie.overview.substring(0, 100)}...
                   </Card.Text>
                   <Link 
                   className="btn btn-primary"
